@@ -1,0 +1,39 @@
+#index {
+  main {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  section {
+    margin-bottom: 1rem;
+    background: #ccc;
+    height: 40vh;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    main {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    main {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
