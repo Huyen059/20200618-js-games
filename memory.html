@@ -8,31 +8,24 @@
 </head>
 <body id="memory-game">
     <main>
-        <section class="cards">
-            <div class="cardCtn">
-                <img src="img/card-back.jpg" alt="card">
-            </div>
-            <div class="cardCtn">
-                <img src="img/card-back.jpg" alt="card">
-            </div>
-            <div class="cardCtn">
-                <img src="img/card-back.jpg" alt="card">
-            </div>
-            <div class="cardCtn">
-                <img src="img/card-back.jpg" alt="card">
-            </div>
-            <div class="cardCtn">
-                <img src="img/card-back.jpg" alt="card">
-            </div>
-            <div class="cardCtn">
-                <img src="img/card-back.jpg" alt="card">
-            </div>
-            <div class="cardCtn">
-                <img src="img/card-back.jpg" alt="card">
-            </div>
-            <div class="cardCtn">
-                <img src="img/card-back.jpg" alt="card">
-            </div>
+        <section class="explain">
+            <h1>Memory game</h1>
+            <p>Some explanations about the rules here.</p>
+        </section>
+        <section class="startGameBtn">
+            <form>
+                <select name="level" id="level">
+                    <option value="2">2 distinct cards</option>
+                    <option value="4">4 distinct cards</option>
+                    <option value="6">6 distinct cards</option>
+                </select>
+                <button type="button" id="startGame">Start</button>
+            </form>
+        </section>
+        <section class="cards"></section>
+        <section class="msg"></section>
+        <section class="reset">
+            <button id="reset">Reset</button>
         </section>
     </main>
 </body>
