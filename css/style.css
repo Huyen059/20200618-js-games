@@ -81,4 +81,15 @@ a {
   #rock-game main .result .resetBtn {
     text-align: center; }
 
+#memory-game main {
+  padding: 1rem; }
+  #memory-game main .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); }
+    #memory-game main .cards .cardCtn {
+      border: 1px solid red;
+      margin: .5rem; }
+      #memory-game main .cards .cardCtn img {
+        max-width: 100%; }
+
 /*# sourceMappingURL=style.css.map */
