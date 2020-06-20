@@ -5,7 +5,7 @@
   overflow-y: hidden;
 
   header {
-    height: 20vh;
+    height: 15vh;
     background: url("../img/moving-block-header.jpg") center;
     background-size: cover;
     display: flex;
@@ -25,7 +25,7 @@
 
   main {
     width: 100%;
-    height: 80vh;
+    height: 85vh;
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 1fr;
@@ -115,7 +115,7 @@
           height: 1.5rem;
 
           .clock {
-            width: 150px;
+            width: 120px;
             display: inline-block;
             padding: .2rem .4rem;
             box-shadow: 1px 1px 2px 1px #343333;
@@ -127,7 +127,7 @@
 
             p {
               display: inline-block;
-              width: 40px;
+              width: 30px;
             }
           }
         }
