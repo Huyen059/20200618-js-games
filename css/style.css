@@ -321,6 +321,7 @@ a {
           text-align: center;
           height: 1.5rem; }
           #moving-block main .info .timing .clockCtn .clock {
+            width: 150px;
             display: inline-block;
             padding: .2rem .4rem;
             box-shadow: 1px 1px 2px 1px #343333;
@@ -329,6 +330,9 @@ a {
             color: #ffffff;
             font-family: 'Orbitron', sans-serif;
             font-size: 1rem; }
+            #moving-block main .info .timing .clockCtn .clock p {
+              display: inline-block;
+              width: 40px; }
   @media (min-width: 992px) {
     #moving-block main {
       grid-template-columns: auto auto;

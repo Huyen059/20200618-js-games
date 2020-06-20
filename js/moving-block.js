@@ -2,6 +2,7 @@
 
 document.querySelector('#play').addEventListener('click', () => {
     ////----DEFINE VARIABLES----////
+    let startTime = new Date();
     const player = document.querySelector('.player');
     const enemies = document.querySelectorAll('.enemy');
     const field = document.querySelector('.field');
@@ -17,6 +18,38 @@ document.querySelector('#play').addEventListener('click', () => {
     console.log('height', field.offsetHeight); //height of element in px with padding and border
 
     ////----DEFINE FUNCTIONS----////
+    const setTimer = () => {
+
+        let now = new Date();
+        let timeElapsed = Math.floor((now.getTime() - startTime.getTime())/1000);
+        console.log(timeElapsed);
+        let second, minute, hour;
+        if (timeElapsed >= 3600) {
+            hour = Math.floor(timeElapsed / 3600);
+            let remain = timeElapsed - hour*3600;
+            if (remain >=60){
+                minute = Math.floor(remain / 60);
+            } else {
+                minute = 0;
+                second = remain;
+            }
+        } else if (timeElapsed >= 60) {
+            hour = 0;
+            minute = Math.floor(timeElapsed / 60);
+            second = timeElapsed - minute*60;
+        } else {
+            hour = 0;
+            minute = 0;
+            second = timeElapsed;
+        }
+
+        document.querySelector('.second').innerHTML = (second <10) ? `0${second}` : second;
+        document.querySelector('.minute').innerHTML = (minute <10) ? `0${minute}` : minute;
+        document.querySelector('.hour').innerHTML = (minute <10) ? `0${hour}` : hour;
+
+        setTimeout(setTimer, 1000);
+    }
+
     const setBlock = (nameOfBlock, left, top) => {
         nameOfBlock.style.cssText = `
             width: ${blockSize}px;
@@ -100,6 +133,7 @@ document.querySelector('#play').addEventListener('click', () => {
 
 
     ////----RUN THE FUNCTIONS----////
+    setTimer();
     showPlayer();
     movePlayer();
     showEnemies();
