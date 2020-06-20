@@ -132,6 +132,21 @@
           }
         }
       }
+
+      .reset {
+        @extend .setPlay;
+        padding-top: 1rem;
+
+        button {
+          background: #f10b0b;
+          color: #ffffff;
+          box-shadow: 1px 1px 3px 1px lighten(#f10b0b, 15%);
+
+          &:hover {
+            box-shadow: 1px 1px 10px 1px lighten(#f10b0b, 15%);
+          }
+        }
+      }
     }
   }
   

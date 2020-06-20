@@ -1,5 +1,3 @@
-
-
 document.querySelector('#play').addEventListener('click', () => {
     ////----DEFINE VARIABLES----////
     let startTime = new Date();

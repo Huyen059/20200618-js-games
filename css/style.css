@@ -289,10 +289,10 @@ a {
         padding: .5rem;
         text-align: center;
         margin-bottom: .5rem; }
-      #moving-block main .info .setPlay {
+      #moving-block main .info .setPlay, #moving-block main .info .reset {
         text-align: center;
         flex-basis: 100%; }
-        #moving-block main .info .setPlay button {
+        #moving-block main .info .setPlay button, #moving-block main .info .reset button {
           width: 100px;
           border: none;
           border-radius: 2rem;
@@ -301,7 +301,7 @@ a {
           background: #046504;
           color: #ffffff;
           box-shadow: 1px 1px 3px 1px #07af07; }
-          #moving-block main .info .setPlay button:hover {
+          #moving-block main .info .setPlay button:hover, #moving-block main .info .reset button:hover {
             box-shadow: 1px 1px 10px 1px #07af07; }
       #moving-block main .info .lives {
         padding: .5rem;
@@ -333,6 +333,14 @@ a {
             #moving-block main .info .timing .clockCtn .clock p {
               display: inline-block;
               width: 40px; }
+      #moving-block main .info .reset {
+        padding-top: 1rem; }
+        #moving-block main .info .reset button {
+          background: #f10b0b;
+          color: #ffffff;
+          box-shadow: 1px 1px 3px 1px #f75151; }
+          #moving-block main .info .reset button:hover {
+            box-shadow: 1px 1px 10px 1px #f75151; }
   @media (min-width: 992px) {
     #moving-block main {
       grid-template-columns: auto auto;
@@ -344,7 +352,7 @@ a {
       #moving-block main .info {
         flex-direction: column;
         align-items: center; }
-        #moving-block main .info .setPlay {
+        #moving-block main .info .setPlay, #moving-block main .info .reset {
           margin-bottom: 2rem;
           flex-basis: auto; }
         #moving-block main .info .lives {
