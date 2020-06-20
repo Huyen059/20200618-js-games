@@ -233,7 +233,10 @@ a {
       margin: .2rem; } }
 
 #moving-block {
-  background: #000; }
+  background: #000;
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden; }
   #moving-block header {
     height: 20vh;
     background: url("../img/moving-block-header.jpg") center;
@@ -252,17 +255,19 @@ a {
   #moving-block main {
     width: 100%;
     height: 80vh;
-    border: 1px solid white;
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 4fr 1fr;
+    grid-template-rows: auto auto;
     padding: 1rem;
     margin-bottom: 1rem; }
     #moving-block main .field {
+      width: 250px;
+      height: 250px;
       position: relative;
       border-radius: .2rem;
-      background: #f10b0b; }
+      background: #f10b0b;
+      margin: 0 auto; }
       #moving-block main .field .block {
         position: absolute;
         border-radius: 50%;
@@ -299,34 +304,39 @@ a {
           #moving-block main .info .setPlay button:hover {
             box-shadow: 1px 1px 10px 1px #07af07; }
       #moving-block main .info .lives {
-        text-align: center;
-        margin-right: 2rem; }
+        padding: .5rem;
+        text-align: center; }
         #moving-block main .info .lives .livesCtn {
           display: flex;
           justify-content: center; }
           #moving-block main .info .lives .livesCtn .live {
-            height: 2.5rem;
-            width: 2.5rem;
+            height: 1.5rem;
+            width: 1.5rem;
             background: url("../img/moving-block-player.png") center;
             background-size: contain;
             margin: 0 .2rem; }
-      #moving-block main .info .timing .clockCtn {
-        text-align: center;
-        height: 2.5rem; }
-        #moving-block main .info .timing .clockCtn .clock {
-          display: inline-block;
-          padding: .2rem .4rem;
-          box-shadow: 1px 1px 2px 1px #343333;
-          border-radius: .2rem;
-          background: #000000;
-          color: #ffffff;
-          font-family: 'Orbitron', sans-serif;
-          font-size: 1rem; }
+      #moving-block main .info .timing {
+        padding: .5rem; }
+        #moving-block main .info .timing .clockCtn {
+          text-align: center;
+          height: 1.5rem; }
+          #moving-block main .info .timing .clockCtn .clock {
+            display: inline-block;
+            padding: .2rem .4rem;
+            box-shadow: 1px 1px 2px 1px #343333;
+            border-radius: .2rem;
+            background: #000000;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem; }
   @media (min-width: 992px) {
     #moving-block main {
-      grid-template-columns: 4fr 1fr;
+      grid-template-columns: auto auto;
       grid-template-rows: 1fr;
       margin-bottom: 0; }
+      #moving-block main .field {
+        width: 500px;
+        height: 500px; }
       #moving-block main .info {
         flex-direction: column;
         align-items: center; }
