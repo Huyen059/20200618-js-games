@@ -184,9 +184,10 @@ document.querySelector('#play').addEventListener('click', () => {
                 } else {
                     clearInterval(time);
                     field.innerHTML = 'Game over!';
+                    livesCtn.innerHTML = "No more chance!";
                     field.style.cssText = 'display: flex; ' +
                         'justify-content: center; align-items: center; ' +
-                        'font-size: 3rem; color: #fff;';
+                        'font-size: 3rem; color: #fff; text-align: center; line-height: 3rem;';
                 }
             }
 
@@ -201,4 +202,8 @@ document.querySelector('#play').addEventListener('click', () => {
     movePlayer();
     showEnemies();
     moveEnemies();
+})
+
+document.querySelector('#reset').addEventListener('click', ()=>{
+    window.location.reload();
 })
