@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Moving Block Game</title>
 </head>
-<body>
-
+<body id="moving-block">
+<header>
+    <h1>Moving Block Game</h1>
+</header>
+<main>
+    <section class="field">
+        <div class="block player"></div>
+        <div class="block enemy"></div>
+        <div class="block enemy"></div>
+        <div class="block enemy"></div>
+        <div class="block enemy"></div>
+    </section>
+    <section class="info">
+        <div class="lives">
+            <h3>Lives</h3>
+            <div class="livesCtn">
+                <div class="live"></div>
+                <div class="live"></div>
+                <div class="live"></div>
+            </div>
+        </div>
+        <div class="timing">
+            <h3>Playing time</h3>
+            <div class="clockCtn">
+                <p class="clock">
+                    <span class="hour">00</span>:
+                    <span class="minute">00</span>:
+                    <span class="second">00</span>
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="js/moving-block.js"></script>
 </body>
 </html>

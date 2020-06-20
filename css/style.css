@@ -202,7 +202,7 @@ a {
         border: 1px solid #ff0000;
         border-radius: .2rem;
         box-shadow: 1px 1px 3px 1px #ff3333;
-        margin: 0 .5rem; }
+        margin: 0 .5rem 1rem .5rem; }
         #memory-game main .cards .cardCtn img {
           max-width: 100%; }
         #memory-game main .cards .cardCtn:hover {
@@ -231,5 +231,90 @@ a {
   @media (min-width: 576px) {
     #memory-game .main .cards .cardCtn {
       margin: .2rem; } }
+
+#moving-block {
+  background: #000; }
+  #moving-block header {
+    height: 20vh;
+    background: url("../img/moving-block-header.jpg") center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 10px 2px #7fc6c6; }
+    #moving-block header h1 {
+      text-align: center;
+      padding: 1rem 2rem;
+      border-radius: .5rem;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 1px 1px 6px 1px #fff;
+      font-size: 2rem; }
+  #moving-block main {
+    width: 100%;
+    height: 80vh;
+    border: 1px solid white;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 1fr;
+    padding: 1rem;
+    margin-bottom: 1rem; }
+    #moving-block main .field {
+      border-radius: .2rem;
+      background: #f10b0b; }
+      #moving-block main .field .block {
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        background: url("../img/moving-block-enemy.jpg") center;
+        background-size: contain; }
+        #moving-block main .field .block:first-child {
+          background: url("../img/moving-block-player.png") center;
+          background-size: contain; }
+    #moving-block main .info {
+      padding: 1rem;
+      border-radius: .2rem;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #moving-block main .info h3 {
+        padding: .5rem;
+        text-align: center;
+        margin-bottom: .5rem; }
+      #moving-block main .info .lives {
+        text-align: center;
+        margin-right: 2rem; }
+        #moving-block main .info .lives .livesCtn {
+          display: flex;
+          justify-content: center; }
+          #moving-block main .info .lives .livesCtn .live {
+            height: 2.5rem;
+            width: 2.5rem;
+            background: url("../img/moving-block-player.png") center;
+            background-size: contain;
+            margin: 0 .2rem; }
+      #moving-block main .info .timing .clockCtn {
+        text-align: center;
+        height: 2.5rem; }
+        #moving-block main .info .timing .clockCtn .clock {
+          display: inline-block;
+          padding: .2rem .4rem;
+          box-shadow: 1px 1px 2px 1px #343333;
+          border-radius: .2rem;
+          background: #000000;
+          color: #ffffff;
+          font-family: 'Orbitron', sans-serif;
+          font-size: 1rem; }
+  @media (min-width: 992px) {
+    #moving-block main {
+      grid-template-columns: 4fr 1fr;
+      grid-template-rows: 1fr;
+      margin-bottom: 0; }
+      #moving-block main .info {
+        flex-direction: column; }
+        #moving-block main .info .lives {
+          margin-right: 0;
+          margin-bottom: 2rem; } }
 
 /*# sourceMappingURL=style.css.map */
