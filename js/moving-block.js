@@ -6,18 +6,30 @@ document.querySelector('#play').addEventListener('click', () => {
     const player = document.querySelector('.player');
     const enemies = document.querySelectorAll('.enemy');
     const field = document.querySelector('.field');
-    let lives = document.querySelectorAll('.live');
+    const livesCtn = document.querySelector('.livesCtn');
 
+    ////----SET THE SIZE OF THE PLAYER AND ENEMIES----////
     let blockSize = (field.offsetWidth < 500) ? 25 : 50;
+    let numOfLives = 3;
 
     //check size of field
-    console.log('offset values of field: left, top, width, and height')
-    console.log('from left', field.offsetLeft); //position from the left of body in px
-    console.log('from top', field.offsetTop); //position from the top of body in px
-    console.log('width', field.offsetWidth); //width of element in px with padding and border
-    console.log('height', field.offsetHeight); //height of element in px with padding and border
+    // console.log('offset values of field: left, top, width, and height')
+    // console.log('from left', field.offsetLeft); //position from the left of body in px
+    // console.log('from top', field.offsetTop); //position from the top of body in px
+    // console.log('width', field.offsetWidth); //width of element in px with padding and border
+    // console.log('height', field.offsetHeight); //height of element in px with padding and border
 
     ////----DEFINE FUNCTIONS----////
+    const generateLives = (numOfLives) => {
+        livesCtn.innerHTML = '';
+        for (let i = 0; i < numOfLives; i++) {
+            livesCtn.innerHTML += `<div class="live"></div>`;
+        }
+    }
+
+    generateLives(numOfLives);
+    let lives = document.querySelectorAll('.live');
+
     const setTimer = () => {
         if (lives.length > 0) {
             let now = new Date();
@@ -42,7 +54,7 @@ document.querySelector('#play').addEventListener('click', () => {
             document.querySelector('.minute').innerHTML = (minute <10) ? `0${minute}` : minute;
             document.querySelector('.hour').innerHTML = (minute <10) ? `0${hour}` : hour;
 
-            setTimeout(setTimer, 1000);
+            // setTimeout(setTimer, 1000);
         }
     }
 
@@ -130,36 +142,54 @@ document.querySelector('#play').addEventListener('click', () => {
     };
 
     const moveEnemies = () => {
+        let liveNum = lives.length;
         for (let i = 0; i < enemies.length; i++) {
             let dX = (Math.random()>0.5) ? 1 : -1;
             let dY = (Math.random()>0.5) ? 1 : -1;
             let enemy = enemies[i];
 
             let move = () => {
-                let posX = enemy.offsetLeft;
-                let posY = enemy.offsetTop;
+                if (liveNum > 0) {
+                    let posX = enemy.offsetLeft;
+                    let posY = enemy.offsetTop;
 
-                if (enemy.offsetLeft + dX > field.offsetWidth - blockSize){
-                    dX = -dX;
+                    if (enemy.offsetLeft + dX > field.offsetWidth - blockSize){
+                        dX = -dX;
+                    }
+
+                    if (enemy.offsetLeft + dX < 0) {
+                        dX = -dX;
+                    }
+
+                    if (enemy.offsetTop + dY > field.offsetHeight - blockSize){
+                        dY = -dY;
+                    }
+
+                    if (enemy.offsetTop + dX < 0) {
+                        dY = -dY;
+                    }
+
+                    posX += dX;
+                    posY += dY;
+                    setBlock(enemy, posX, posY);
+                    let playerPosX = player.offsetLeft;
+                    let playerPosY = player.offsetTop;
+
+                    if (playerPosX > posX-blockSize && playerPosX < posX+blockSize &&
+                        playerPosY > posY-blockSize && playerPosY < posY+blockSize){
+                        liveNum--;
+                        generateLives(liveNum);
+                        setBlock(player, 0, 0);
+                    }
+
+                    setTimeout(move, 100);
+                } else {
+                    clearInterval(time);
+                    field.innerHTML = 'Game over!';
+                    field.style.cssText = 'display: flex; ' +
+                        'justify-content: center; align-items: center; ' +
+                        'font-size: 3rem; color: #fff;';
                 }
-
-                if (enemy.offsetLeft + dX < 0) {
-                    dX = -dX;
-                }
-
-                if (enemy.offsetTop + dY > field.offsetHeight - blockSize){
-                    dY = -dY;
-                }
-
-                if (enemy.offsetTop + dX < 0) {
-                    dY = -dY;
-                }
-
-                posX += dX;
-                posY += dY;
-                setBlock(enemy, posX, posY);
-
-                setTimeout(move, 100);
             }
 
             move();
@@ -168,7 +198,7 @@ document.querySelector('#play').addEventListener('click', () => {
     }
 
     ////----RUN THE FUNCTIONS----////
-    setTimer();
+    let time = setInterval(setTimer, 1000);
     showPlayer();
     movePlayer();
     showEnemies();
