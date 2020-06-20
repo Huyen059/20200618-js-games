@@ -9,7 +9,6 @@ document.querySelector('#play').addEventListener('click', () => {
     let lives = document.querySelectorAll('.live');
 
     let blockSize = (field.offsetWidth < 500) ? 25 : 50;
-    let randPosAll = []; //store the position of the enemies
 
     //check size of field
     console.log('offset values of field: left, top, width, and height')
@@ -114,25 +113,64 @@ document.querySelector('#play').addEventListener('click', () => {
 
     const showEnemies = () => {
         //Make enemies appear at random positions
+        //let randPosAll = []; //store the position of the enemies
 
         for (let i = 0; i < enemies.length; i++) {
             let randX = randPosXY('x');
             let randY = randPosXY('y');
 
-            randPosAll.push(randX);
-            randPosAll.push(randY);
+            // randPosAll.push(randX);
+            // randPosAll.push(randY);
             //console.log('Iteration i = ' + i + ', value x: ' + randPosAll[2*i] + ', value y: ' + randPosAll[2*i+1]);
 
             //add styling for each enemy
-            setBlock(enemies[i], randPosAll[2 * i], randPosAll[2 * i + 1]);
+            //setBlock(enemies[i], randPosAll[2 * i], randPosAll[2 * i + 1]);
+            setBlock(enemies[i], randX, randY);
         }
     };
 
+    const moveEnemies = () => {
+        for (let i = 0; i < enemies.length; i++) {
+            let dX = (Math.random()>0.5) ? 1 : -1;
+            let dY = (Math.random()>0.5) ? 1 : -1;
+            let enemy = enemies[i];
+
+            let move = () => {
+                let posX = enemy.offsetLeft;
+                let posY = enemy.offsetTop;
+
+                if (enemy.offsetLeft + dX > field.offsetWidth - blockSize){
+                    dX = -dX;
+                }
+
+                if (enemy.offsetLeft + dX < 0) {
+                    dX = -dX;
+                }
+
+                if (enemy.offsetTop + dY > field.offsetHeight - blockSize){
+                    dY = -dY;
+                }
+
+                if (enemy.offsetTop + dX < 0) {
+                    dY = -dY;
+                }
+
+                posX += dX;
+                posY += dY;
+                setBlock(enemy, posX, posY);
+
+                setTimeout(move, 100);
+            }
+
+            move();
+        }
+
+    }
 
     ////----RUN THE FUNCTIONS----////
     setTimer();
     showPlayer();
     movePlayer();
     showEnemies();
-
+    moveEnemies();
 })
