@@ -1,18 +1,121 @@
 #memory-game {
+  background: url("../img/memory-bg.jpg");
+  background-size: cover;
+
   main {
+    width: 100%;
+    min-height: 100vh;
     padding: 1rem;
+    background: rgba(255, 255, 255, 0.85);
+
+    .explain {
+      h1, h1~p {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .rule {
+        width: 80%;
+        margin: 0 auto 1rem auto;
+
+
+        h3 {
+          margin-bottom: 1rem;
+        }
+
+        ul {
+          padding-left: 1rem;
+        }
+      }
+    }
+
+    .startGameBtn form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      select {
+        width: 200px;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        outline: none;
+        border-radius: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      button {
+        @extend select;
+        width: 100px;
+        background: darken(#008000, 10%);
+        color: #fff;
+        border: none;
+
+        &:hover {
+          background: #008000;
+          box-shadow: 1px 1px 3px 1px lighten(#008000, 15%);
+        }
+
+      }
+    }
 
     .cards {
+      margin-bottom: .5rem;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
 
       .cardCtn {
-        border: 1px solid red;
-        margin: .5rem;
+        border: 1px solid #ff0000;
+        border-radius: .2rem;
+        box-shadow: 1px 1px 3px 1px lighten(#ff0000, 10%);
+        margin: 0 .5rem;
         img {
           max-width: 100%;
+        }
+
+        &:hover {
+          box-shadow: 1px 1px 3px 1px lighten(#ff0000, 30%);
+        }
+      }
+    }
+
+    .msg {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #f10b0b;
+    }
+
+    .reset {
+      text-align: center;
+      #reset {
+        width: 100px;
+        padding: .5rem;
+        font-size: 1rem;
+        border-radius: 2rem;
+        border: none;
+        outline: none;
+        background: darken(#ff7f50, 20%);
+        color: #fff;
+
+        &:hover {
+          background: darken(#ff7f50, 10%);
+          box-shadow: 1px 1px 3px 1px lighten(#ff7f50, 15%);
         }
       }
     }
   }
+
+@media (min-width: 576px) {
+  .main {
+    .cards {
+      .cardCtn {
+        margin: .2rem;
+      }
+    }
+  }
+}
 }

@@ -10,20 +10,40 @@
     <main>
         <section class="explain">
             <h1>Memory game</h1>
-            <p>Some explanations about the rules here.</p>
+            <p>Choose the number of distinct cards and click Start to start playing.</p>
+            <div class="rule">
+                <h3>Rules</h3>
+                <ul>
+                    <li>
+                        You choose two cards by clicking them to flip them over.
+                    </li>
+                    <li>
+                        If they are the same image, they will remain being shown.
+                    </li>
+                    <li>
+                        If they are different, they will flip back after 1s.
+                    </li>
+                    <li>
+                        Until every card is shown, you win the game.
+                    </li>
+                </ul>
+            </div>
         </section>
         <section class="startGameBtn">
             <form>
+                <label for="level">Choose number of card pair:</label>
                 <select name="level" id="level">
-                    <option value="2">2 distinct cards</option>
-                    <option value="4">4 distinct cards</option>
-                    <option value="6">6 distinct cards</option>
+                    <option value="2">2 pairs</option>
+                    <option value="4">4 pairs</option>
+                    <option value="6">6 pairs</option>
                 </select>
                 <button type="button" id="startGame">Start</button>
             </form>
         </section>
         <section class="cards"></section>
-        <section class="msg"></section>
+        <section class="msg">
+            Let's have fun!
+        </section>
         <section class="reset">
             <button id="reset">Reset</button>
         </section>

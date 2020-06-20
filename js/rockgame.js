@@ -35,11 +35,11 @@ btns.addEventListener('click', (e) => {
     let btnClick = e.target.innerHTML;
     //if user clicks their btn choices
     if (options.indexOf(btnClick) !== -1) {
-        userChoice.innerHTML = btnClick;
+        userChoice.innerHTML = `You play ${btnClick}`;
         compare();
     } else {
         let index = Math.round(Math.random() * (options.length - 1));
-        computerChoice.innerHTML = options[index];
+        computerChoice.innerHTML = `Computer plays ${options[index]}`;
         compare();
     }
 })

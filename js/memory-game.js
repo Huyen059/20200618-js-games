@@ -1,4 +1,5 @@
 document.querySelector('#startGame').addEventListener('click', ()=>{
+    document.querySelector('.msg').innerHTML = 'Keep trying!'
     let numCard = Number(document.querySelector('#level').value);
     play(numCard);
 })
@@ -32,7 +33,7 @@ const play = (num) => {
 //Function to shuffle the elements in the array
     const shuffle = originalArray => {
         let array = [].concat(originalArray);
-        let currentIndex = array.length, temporaryValue, randomIndex;
+        let currentIndex = array.length, storeOriValue, randomIndex;
 
         // While there remain elements to shuffle...
         while (currentIndex !== 0) {
@@ -42,9 +43,9 @@ const play = (num) => {
             currentIndex -= 1;
 
             // And swap it with the current element.
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
+            storeOriValue = array[currentIndex]; //Store the original value to a variable
+            array[currentIndex] = array[randomIndex]; //give the original el new value
+            array[randomIndex] = storeOriValue; //give the random el the value of original el
         }
 
         return array;
@@ -94,7 +95,7 @@ const play = (num) => {
                     console.log(count);
                     shownCard = [];
                     if (count===level){
-                        document.querySelector('.msg').innerHTML = 'You win.';
+                        document.querySelector('.msg').innerHTML = 'You win!';
                     }
                 }
             }

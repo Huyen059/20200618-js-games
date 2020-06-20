@@ -1,17 +1,30 @@
 #rock-game {
   padding: 1rem;
+  background: #ffb9a5;
 
-  h1 {
-    text-align: center;
-    margin-bottom: 1rem;
+  header {
+    height: 40vh;
+    background: url("../img/rock-header-bg.jpg") center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      background: rgba(241, 11, 11, .98);
+      color: #fff;
+      border-radius: .5rem;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
   }
   main {
     .btnCtn {
+      background: url("../img/rock-header-mini-bg.jpg") repeat;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
 
       .left {
-        border: 1px solid red;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -20,21 +33,35 @@
 
       .right {
         @extend .left;
-
       }
 
       button {
         width: 6rem;
         margin: 1rem;
+        font-size: 1rem;
+        padding: .5rem;
+        border-radius: 1rem;
+        border: none;
+        outline: none;
+        background: #f10b0b;
+        color: #fff;
+        box-shadow: 1px 1px 1px 1px #ff3333;
+
+        &:hover {
+          box-shadow: 1px 1px 6px 1px #ff3333;
+        }
       }
     }
+
     .result {
       .choices {
+        padding-top: 1rem;
+        font-size: 1rem;
+        font-weight: bold;
         display: grid;
-        grid-template-columns: 4fr 2fr 4fr;
+        grid-template-columns: 1fr 1fr;
+
         div {
-          padding: 1rem;
-          border: 1px solid green;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -42,22 +69,32 @@
       }
 
       .msg {
-        padding: 1rem;
+        margin-bottom: 2rem;
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-weight: bold;
-
-        .win {
-          color: green;
-        }
-
-        .loose {
-          color: red;
-        }
+        color: #ff0000;
       }
 
       .resetBtn {
         text-align: center;
+
+        #reset {
+          padding: .5rem 1rem;
+          font-size: 1rem;
+          border: none;
+          border-radius: 1rem;
+          outline: none;
+          background: #f10b0b;
+          color: #fff;
+          box-shadow: 1px 1px 1px 1px #ff3333;
+
+
+          &:hover {
+            background: #ff0000;
+            box-shadow: 1px 1px 6px 1px #ff3333;
+          }
+        }
       }
     }
   }
