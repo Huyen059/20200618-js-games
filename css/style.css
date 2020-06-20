@@ -260,15 +260,16 @@ a {
     padding: 1rem;
     margin-bottom: 1rem; }
     #moving-block main .field {
+      position: relative;
       border-radius: .2rem;
       background: #f10b0b; }
       #moving-block main .field .block {
-        height: 2.5rem;
-        width: 2.5rem;
+        position: absolute;
         border-radius: 50%;
         background: url("../img/moving-block-enemy.jpg") center;
-        background-size: contain; }
-        #moving-block main .field .block:first-child {
+        background-size: contain;
+        display: none; }
+        #moving-block main .field .block:last-child {
           background: url("../img/moving-block-player.png") center;
           background-size: contain; }
     #moving-block main .info {
@@ -276,12 +277,27 @@ a {
       border-radius: .2rem;
       background: #ffffff;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center; }
       #moving-block main .info h3 {
         padding: .5rem;
         text-align: center;
         margin-bottom: .5rem; }
+      #moving-block main .info .setPlay {
+        text-align: center;
+        flex-basis: 100%; }
+        #moving-block main .info .setPlay button {
+          width: 100px;
+          border: none;
+          border-radius: 2rem;
+          outline: none;
+          padding: .5rem;
+          background: #046504;
+          color: #ffffff;
+          box-shadow: 1px 1px 3px 1px #07af07; }
+          #moving-block main .info .setPlay button:hover {
+            box-shadow: 1px 1px 10px 1px #07af07; }
       #moving-block main .info .lives {
         text-align: center;
         margin-right: 2rem; }
@@ -312,7 +328,11 @@ a {
       grid-template-rows: 1fr;
       margin-bottom: 0; }
       #moving-block main .info {
-        flex-direction: column; }
+        flex-direction: column;
+        align-items: center; }
+        #moving-block main .info .setPlay {
+          margin-bottom: 2rem;
+          flex-basis: auto; }
         #moving-block main .info .lives {
           margin-right: 0;
           margin-bottom: 2rem; } }

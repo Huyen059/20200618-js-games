@@ -32,17 +32,18 @@
     margin-bottom: 1rem;
 
     .field {
+      position: relative;
       border-radius: .2rem;
       background: #f10b0b;
 
       .block {
-        height: 2.5rem;
-        width: 2.5rem;
+        position: absolute;
         border-radius: 50%;
         background: url("../img/moving-block-enemy.jpg") center;
         background-size: contain;
+        display: none;
 
-        &:first-child {
+        &:last-child {
           background: url("../img/moving-block-player.png") center;
           background-size: contain;
         }
@@ -54,6 +55,7 @@
       border-radius: .2rem;
       background: #ffffff;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
 
@@ -61,6 +63,26 @@
         padding: .5rem;
         text-align: center;
         margin-bottom: .5rem;
+      }
+
+      .setPlay {
+        text-align: center;
+        flex-basis: 100%;
+
+        button {
+          width: 100px;
+          border: none;
+          border-radius: 2rem;
+          outline: none;
+          padding: .5rem;
+          background: #046504;
+          color: #ffffff;
+          box-shadow: 1px 1px 3px 1px lighten(#046504, 15%);
+
+          &:hover {
+            box-shadow: 1px 1px 10px 1px lighten(#046504, 15%);
+          }
+        }
       }
 
       .lives {
@@ -109,6 +131,12 @@
 
       .info {
         flex-direction: column;
+        align-items: center;
+
+        .setPlay {
+          margin-bottom: 2rem;
+          flex-basis: auto;
+        }
 
         .lives {
           margin-right: 0;
