@@ -139,7 +139,7 @@ document.querySelector('#play').addEventListener('click', () => {
         }
     };
 
-    const moveEnemies = () => {
+    const fight = () => {
         let liveNum = lives.length;
         for (let i = 0; i < enemies.length; i++) {
             let dX = (Math.random()>0.5) ? 1 : -1;
@@ -201,7 +201,7 @@ document.querySelector('#play').addEventListener('click', () => {
     showPlayer();
     movePlayer();
     showEnemies();
-    moveEnemies();
+    fight();
 })
 
 document.querySelector('#reset').addEventListener('click', ()=>{
