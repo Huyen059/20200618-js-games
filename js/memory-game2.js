@@ -102,7 +102,6 @@ class UI {
     }
 
     //// Based on the number of card pairs that user chooses, show the pairs on the screen at random position
-    //// showCards() accepts number of card pairs as parameter, return an array of the url of the cards
     static showCards() {
         let numberOfCardPairs = UI.getNumberOfCardPairs();
         let cardUrlArray = UI.getCardUrls(numberOfCardPairs);
