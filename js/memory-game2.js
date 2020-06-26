@@ -1,8 +1,13 @@
 //// Click button to start the game
 document.querySelector('#startGame').addEventListener('click', function startNewGame() {
+    //// Hide rules and level choices and start button when the game starts
+    document.querySelector('.rule').style.display = 'none';
+    document.querySelector('.startGameBtn').style.display = 'none';
+    document.querySelector('.explain h1~p').style.display = 'none';
+    document.querySelector('.explain h1').style.marginBottom = '3rem';
+    document.querySelector('.msg').innerHTML = '';
+    //// Display the cards
     UI.showCards();
-    //// Disable the Start button after the game is already started
-    this.removeEventListener('click', startNewGame);
     //// After the cards are shown, we can click on the cards to flip them
     let cards = document.querySelectorAll('.cardCtn > img');
     let numOfClick = 0;
